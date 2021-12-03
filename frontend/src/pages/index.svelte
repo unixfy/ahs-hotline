@@ -1,5 +1,5 @@
 <script>
-    import AuthBox from "../components/Auth/AuthBox.svelte";
+    import TicketAuthBox from "../components/TicketAuth/TicketAuthBox.svelte";
 </script>
 
 <h1>Welcome to AHS-Hotline</h1>
@@ -8,4 +8,4 @@
 <hr>
 
 
-<AuthBox />
+<TicketAuthBox />
