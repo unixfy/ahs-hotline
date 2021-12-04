@@ -23,8 +23,8 @@
 </script>
 
 <HeaderNav>
-    {#each items as {path, title, children, hidden, ...rest}}
-        {#if !(hidden = true)}
+    {#each items as {path, title, children, meta, ...rest}}
+        {#if !(meta.hidden)}
             {#if children.length > 0}
                 <HeaderNavMenu text="{toTitlecase(title)}">
                     {#each children as {path, title, ...rest}}
@@ -40,8 +40,8 @@
 
 <SideNav bind:isOpen={sideNavOpen}>
     <SideNavItems>
-        {#each items as {path, title, children, hidden, ...rest}}
-            {#if !(hidden = true)}
+        {#each items as {path, title, children, meta, ...rest}}
+            {#if !(meta.hidden)}
                 {#if children.length > 0}
                     <SideNavMenu text="{toTitlecase(title)}">
                         {#each children as {path, title, ...rest}}
