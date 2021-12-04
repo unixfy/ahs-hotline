@@ -43,4 +43,8 @@
         align-items: center;
         width: 100%;
     }
+
+    :global(.spaced) {
+        padding-bottom: 3%;
+    }
 </style>
