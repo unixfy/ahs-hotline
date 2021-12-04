@@ -65,7 +65,7 @@
 
 
 <HeaderUtilities>
-    <HeaderActionLink aria-label="Admin Login" icon={Login20} href="{$url('/admin/login')}"/>
+    <HeaderActionLink aria-label="Admin Login" icon={Login20} href="{$url('/login')}"/>
     <HeaderGlobalAction aria-label="Dark Mode Toggle" icon={Sun20}/>
 <!--    todo: implement localstorage with dark mode-->
 </HeaderUtilities>
