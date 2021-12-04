@@ -32,4 +32,15 @@
         flex: 1;
     }
 
+    :global(.horiz-center-text) {
+        text-align: center;
+    }
+
+    :global(.horiz-center) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 </style>

@@ -5,10 +5,14 @@
 <script>
     import {url, isActive, layout} from '@roxi/routify'
     import {
+        HeaderAction, HeaderActionLink,
+        HeaderGlobalAction,
         HeaderNav,
         HeaderNavItem,
-        HeaderNavMenu, SideNav, SideNavItems, SideNavLink, SideNavMenu, SideNavMenuItem,
+        HeaderNavMenu, HeaderUtilities, SideNav, SideNavItems, SideNavLink, SideNavMenu, SideNavMenuItem,
     } from "carbon-components-svelte";
+    import Login20 from "carbon-icons-svelte/lib/Login20";
+    import Sun20 from "carbon-icons-svelte/lib/Sun20";
 
     export let items = $layout.children
 
@@ -20,6 +24,8 @@
 
     // Pull sideNavOpen from the parent component
     export let sideNavOpen;
+    // Resolves some annoying warnings when building svelte app
+    let toTitlecase = window.toTitlecase;
 </script>
 
 <HeaderNav>
@@ -56,6 +62,12 @@
         {/each}
     </SideNavItems>
 </SideNav>
+
+
+<HeaderUtilities>
+    <HeaderActionLink aria-label="Admin Login" icon={Login20} href="{$url('/admin/login')}"/>
+    <HeaderGlobalAction aria-label="Dark Mode Toggle" icon={Sun20}/>
+</HeaderUtilities>
 
 <style>
 </style>
