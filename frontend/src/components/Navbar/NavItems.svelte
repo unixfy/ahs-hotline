@@ -5,7 +5,7 @@
 <script>
     import {url, isActive, layout} from '@roxi/routify'
     import {
-        HeaderAction, HeaderActionLink,
+        HeaderActionLink,
         HeaderGlobalAction,
         HeaderNav,
         HeaderNavItem,
@@ -13,6 +13,8 @@
     } from "carbon-components-svelte";
     import Login20 from "carbon-icons-svelte/lib/Login20";
     import Sun20 from "carbon-icons-svelte/lib/Sun20";
+    import Logout20 from "carbon-icons-svelte/lib/Logout20";
+    import {auth} from "../../stores";
 
     export let items = $layout.children
 
@@ -65,9 +67,14 @@
 
 
 <HeaderUtilities>
-    <HeaderActionLink aria-label="Admin Login" icon={Login20} href="{$url('/login')}"/>
+    <!--    Show login button if not logged in, if logged in show logout button -->
+    {#if !$auth.account}
+        <HeaderActionLink aria-label="Admin Login" icon={Login20} href="{$url('/auth/login')}"/>
+    {:else if $auth.account}
+        <HeaderActionLink aria-label="Logout" icon={Logout20} href="{$url('/auth/logout')}"/>
+    {/if}
     <HeaderGlobalAction aria-label="Dark Mode Toggle" icon={Sun20}/>
-<!--    todo: implement localstorage with dark mode-->
+    <!--    todo: implement localstorage with dark mode-->
 </HeaderUtilities>
 
 <style>

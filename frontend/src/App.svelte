@@ -1,6 +1,9 @@
 <script>
     import {Router} from '@roxi/routify'
     import {routes} from '../.routify/routes'
+    import {onMount} from "svelte";
+    import {appwrite} from "./appwrite";
+    import {auth} from "./stores";
 
     window.toTitlecase = function (str) {
         return str.replace(
@@ -10,6 +13,16 @@
             }
         );
     }
+
+    // As soon as the page is loaded, try to grab the authentication session
+    onMount(async () => {
+            try {
+                const account = await appwrite.account.get();
+                auth.init(account);
+            } catch (error) {
+                auth.init(null);
+            }
+    })
 </script>
 
 <Router {routes}/>

@@ -1,9 +1,10 @@
 <script>
     import {url} from '@roxi/routify'
     import {ClickableTile, Column, InlineNotification, Row} from "carbon-components-svelte";
+    import {auth} from "../../stores";
 </script>
 
-{#if false}
+{#if $auth.account}
     <Row>
         <Column md={4} sm={4} lg={4}>
             <h2 style="padding-bottom: 30px;">Admin Area</h2>
@@ -19,7 +20,7 @@
             <ClickableTile href="{$url('/admin/taxonomies')}">
                 Taxonomies
             </ClickableTile>
-            <ClickableTile href="{$url('/admin/logout')}">
+            <ClickableTile href="{$url('/auth/logout')}">
                 Logout
             </ClickableTile>
         </Column>
