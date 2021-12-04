@@ -11,7 +11,6 @@
     } from "carbon-components-svelte";
 
     export let items = $layout.children
-    export let explode = 'all' // "selected", "all" or false
 
     // Debugging code
     // import { onMount } from 'svelte';
@@ -26,13 +25,13 @@
 <HeaderNav>
     {#each items as {path, title, children, ...rest}}
         {#if children.length > 0}
-            <HeaderNavMenu text="{title}">
+            <HeaderNavMenu text="{toTitlecase(title)}">
                 {#each children as {path, title, ...rest}}
-                    <HeaderNavItem href="{$url(path)}" isSelected={$isActive(path)} text="{title}"/>
+                    <HeaderNavItem href="{$url(path)}" isSelected={$isActive(path)} text="{toTitlecase(title)}"/>
                 {/each}
             </HeaderNavMenu>
         {:else}
-            <HeaderNavItem href="{$url(path)}" isSelected={$isActive(path)} text="{title}"/>
+            <HeaderNavItem href="{$url(path)}" isSelected={$isActive(path)} text="{toTitlecase(title)}"/>
         {/if}
     {/each}
 </HeaderNav>
@@ -41,13 +40,13 @@
     <SideNavItems>
         {#each items as {path, title, children, ...rest}}
             {#if children.length > 0}
-                <SideNavMenu text="{title}">
+                <SideNavMenu text="{toTitlecase(title)}">
                     {#each children as {path, title, ...rest}}
-                        <SideNavMenuItem href="{$url(path)}" isSelected={$isActive(path)}  text="{title}"/>
+                        <SideNavMenuItem href="{$url(path)}" isSelected={$isActive(path)}  text="{toTitlecase(title)}"/>
                     {/each}
                 </SideNavMenu>
             {:else}
-                <SideNavLink href="{$url(path)}" isSelected={$isActive(path)} text="{title}"/>
+                <SideNavLink href="{$url(path)}" isSelected={$isActive(path)} text="{toTitlecase(title)}"/>
             {/if}
         {/each}
     </SideNavItems>

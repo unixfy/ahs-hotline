@@ -1,6 +1,15 @@
 <script>
     import {Router} from '@roxi/routify'
     import {routes} from '../.routify/routes'
+
+    window.toTitlecase = function (str) {
+        return str.replace(
+            /\w\S*/g,
+            function (txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            }
+        );
+    }
 </script>
 
 <Router {routes}/>
