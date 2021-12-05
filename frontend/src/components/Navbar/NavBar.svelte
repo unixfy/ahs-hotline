@@ -1,8 +1,6 @@
 <script>
     import Navigation from './NavItems.svelte'
 
-    export let children
-
     import {
         Header,
         SkipToContent,
