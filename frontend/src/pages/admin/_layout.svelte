@@ -9,7 +9,7 @@
         <Column md={4} sm={4} lg={4}>
             <h2 style="padding-bottom: 30px;">Admin Area</h2>
             <ClickableTile href="{$url('/admin/auth-tickets')}">
-                Authentication Tickets
+                Authentication Codes
             </ClickableTile>
             <ClickableTile href="{$url('/admin/message/all')}">
                 All Messages
@@ -20,7 +20,7 @@
             <ClickableTile href="{$url('/admin/taxonomies')}">
                 Taxonomies
             </ClickableTile>
-            <ClickableTile href="{$url('/auth/logout')}">
+            <ClickableTile href="{$url('/auth/logout')}" style="color:red;">
                 Logout
             </ClickableTile>
         </Column>

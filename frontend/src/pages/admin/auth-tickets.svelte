@@ -1,3 +1,11 @@
-<h1>Authentication Tickets</h1>
+<script>
+    import AuthTicketsDataTable from "../../components/DataTables/AuthTicketsDataTable.svelte";
+</script>
+
+<h1>Authentication Codes</h1>
+
 <hr>
-in this area, admins will be able to look up all of the "codes" used by students to send messages.
+
+<div class="spaced">
+    <AuthTicketsDataTable/>
+</div>
