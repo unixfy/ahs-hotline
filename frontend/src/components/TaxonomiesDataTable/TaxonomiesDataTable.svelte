@@ -8,7 +8,7 @@
         },
         {
             key: 'color',
-            value: 'Color'
+            value: 'Color',
         }
     ]
 
@@ -24,10 +24,16 @@
         description={description}
         rows={data}
         headers={headers}
-        zebra
-        batchSelection
-        bind:selectedRowIds
-/>
+        bind:selectedRowIds>
+    <span slot="cell" let:row let:cell>
+        {#if cell.key === 'color'}
+            {cell.value}
+            <span style="background-color:{cell.value}; padding: 10px; margin-left: 5px;"></span>
+        {:else}
+            {cell.value}
+        {/if}
+    </span>
+</DataTable>
 
 <!-- TODO: Editing/creating UI -->
 <!-- TODO: Toolbar to create stuff -->
