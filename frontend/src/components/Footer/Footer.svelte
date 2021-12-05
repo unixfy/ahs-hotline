@@ -18,8 +18,8 @@
 
 <style>
     footer {
-        padding-top: 1%;
-        padding-bottom: 1%;
+        padding-top: 20px;
+        padding-bottom: 20px;
         background-color: #262626;
         color: white;
     }
