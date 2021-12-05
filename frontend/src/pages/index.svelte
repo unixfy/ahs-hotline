@@ -2,6 +2,8 @@
     import TicketAuthBox from "../components/TicketAuth/TicketAuthBox.svelte";
 </script>
 
+<!-- TODO: Beautify landing page -->
+
 <h1>Welcome to AHS-Hotline</h1>
 <p>A trusted resource to connect you with a senior at Adams High School.</p>
 
