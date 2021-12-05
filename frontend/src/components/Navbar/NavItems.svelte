@@ -14,6 +14,7 @@
     import Login20 from "carbon-icons-svelte/lib/Login20";
     import Sun20 from "carbon-icons-svelte/lib/Sun20";
     import Logout20 from "carbon-icons-svelte/lib/Logout20";
+    import SettingsAdjust20 from "carbon-icons-svelte/lib/SettingsAdjust20";
     import {auth} from "../../stores";
 
     export let items = $layout.children
@@ -71,6 +72,7 @@
     {#if !$auth.account}
         <HeaderActionLink aria-label="Admin Login" icon={Login20} href="{$url('/auth/login')}"/>
     {:else if $auth.account}
+        <HeaderActionLink aria-label="Admin Area" icon={SettingsAdjust20} href="{$url('/admin/message/my')}"/>
         <HeaderActionLink aria-label="Logout" icon={Logout20} href="{$url('/auth/logout')}"/>
     {/if}
     <HeaderGlobalAction aria-label="Dark Mode Toggle" icon={Sun20}/>
