@@ -15,11 +15,6 @@
   # Default build command.
   command = "npm run build"
 
-
-[[redirects]]
-  from = "/*"
-  to = "/blog/:splat"
-
 # Prevent 404s on refresh
 [[redirects]]
   from = "/*"
