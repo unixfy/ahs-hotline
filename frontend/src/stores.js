@@ -1,4 +1,4 @@
-import {derived, writable} from 'svelte/store';
+import {writable} from 'svelte/store';
 import {appwrite} from "./appwrite";
 
 // TODO: If user is authenticated admin

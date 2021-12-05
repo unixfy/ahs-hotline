@@ -4,8 +4,7 @@
         DataTable,
         Toolbar,
         ToolbarBatchActions,
-        ToolbarContent, ToolbarMenu, ToolbarMenuItem,
-        ToolbarSearch
+        ToolbarContent, ToolbarSearch
     } from "carbon-components-svelte";
 
     let headers = [
