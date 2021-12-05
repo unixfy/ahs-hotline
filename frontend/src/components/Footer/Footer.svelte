@@ -9,7 +9,7 @@
             <Column>
                 <p> &copy; 2021 AHS-Hotline - Built with
                     <FavoriteFilled16/>
-                    by Unixfy
+                    by <a href="https://unixfy.net" target="_blank">Unixfy</a> - Powered by Svelte & Netlify
                 </p>
             </Column>
         </Row>
