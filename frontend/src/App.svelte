@@ -4,6 +4,7 @@
     import {onMount} from "svelte";
     import {appwrite} from "./appwrite";
     import {auth} from "./stores";
+    import ShowToast from "./components/UIElements/ShowToast.svelte";
 
     window.toTitlecase = function (str) {
         return str.replace(
@@ -16,16 +17,23 @@
 
     // As soon as the page is loaded, try to grab the authentication session
     onMount(async () => {
-            try {
-                const account = await appwrite.account.get();
-                auth.init(account);
-            } catch (error) {
-                auth.init(null);
-            }
+        try {
+            const account = await appwrite.account.get();
+            auth.init(account);
+        } catch (error) {
+            auth.init(null);
+        }
     })
 </script>
 
+
 <Router {routes}/>
+
+
+<!-- Space to show toasts -->
+<div class="toast">
+    <ShowToast/>
+</div>
 
 <style global>
     :global(hr) {
@@ -59,5 +67,12 @@
 
     :global(.spaced) {
         padding-bottom: 3%;
+    }
+
+    :global(.toast) {
+        position: absolute;
+        right: 0;
+        /* Use 3rem to make sure it always is below the navbar */
+        margin-top: 3rem;
     }
 </style>

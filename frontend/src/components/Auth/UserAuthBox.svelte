@@ -8,22 +8,16 @@
         TextInput,
         Tile
     } from "carbon-components-svelte";
-    import {auth} from "../../stores";
+    import {auth, toast} from "../../stores";
     import {goto} from "@roxi/routify";
 
     let email
     let password
 
-    let loginValidationFailed = false;
-    let loginValidationFailedMessage = '';
-
     let loading = false;
 
     let login = async () => {
         try {
-            loginValidationFailed = false;
-            loginValidationFailedMessage = '';
-
             loading = true;
             // Try to log in
             await auth.loginEmailPassword(email, password);
@@ -31,11 +25,13 @@
             loading = false;
             // Redirect to my message screen
             $goto('/admin/message/my')
+            // Show hello message with user's name
+            toast.send("success", "Login succeeded", `Hello, ${$auth.account.name}!`)
         } catch (error) {
             loading = false;
-            console.log(error);
-            loginValidationFailed = true;
-            loginValidationFailedMessage = error.message;
+            // console.log(error);
+            // Show a toast with the error
+            toast.send("error", "Login failed", error.message);
         }
     }
 </script>
@@ -52,14 +48,6 @@
                     <div style="padding-bottom: 10%;">
                         <h2>Please sign in</h2>
                     </div>
-                    <!--                    Show error if login failed -->
-                    {#if loginValidationFailed}
-                        <InlineNotification
-                                title="Error:"
-                                subtitle={loginValidationFailedMessage}
-                                hideCloseButton
-                        />
-                    {/if}
                     <TextInput labelText="Email address" placeholder="Enter email address..." required type="email"
                                bind:value={email}/>
                     <PasswordInput
