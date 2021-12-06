@@ -1,5 +1,5 @@
 <script>
-  import NavBar from '../components/Navbar/NavBar.svelte'
+  import NavBar from '../components/UIElements/NavBar.svelte'
 
   import {
     Content,
@@ -9,8 +9,8 @@
   } from "carbon-components-svelte";
 
   import "carbon-components-svelte/css/all.css";
-  import Footer from "../components/Footer/Footer.svelte";
-  import Title from "../components/Navbar/Title.svelte";
+  import Footer from "../components/UIElements/Footer.svelte";
+  import Title from "../components/UIElements/Title.svelte";
   let theme = "white"; // "white" | "g10" | "g80" | "g90" | "g100"
 
   $: document.documentElement.setAttribute("theme", theme);

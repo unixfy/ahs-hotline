@@ -1,5 +1,5 @@
 <script>
-    import TicketAuthBox from "../components/TicketAuth/TicketAuthBox.svelte";
+    import TicketAuthBox from "../components/Auth/TicketAuthBox.svelte";
 </script>
 
 <!-- TODO: Beautify landing page -->

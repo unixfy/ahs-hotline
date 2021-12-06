@@ -1,5 +1,5 @@
 <script>
-    import PageHeader from "../../components/PageHeader/PageHeader.svelte";
+    import PageHeader from "../../components/UIElements/PageHeader.svelte";
     import CompositionInterface from "../../components/Message/CompositionInterface.svelte";
 </script>
 
