@@ -1,6 +1,7 @@
 <script>
-    import {PasswordInput, Button, Form, FormGroup, Tile} from "carbon-components-svelte";
-    import {url} from "@roxi/routify";
+    import {PasswordInput, Button, Form, FormGroup, Tile, InlineNotification} from "carbon-components-svelte";
+    import {goto, url} from "@roxi/routify";
+    import {toast} from "../../stores";
 
     // User's input
     let authTicket = "";
@@ -9,8 +10,16 @@
     let ticketValidationFailureText = '';
 
     let validateTicket = function () {
-        ticketValidationFailed = true;
-        ticketValidationFailureText = 'This code does not exist.';
+        if (authTicket === "DEMO1234") {
+            toast.send("success", "Existing message found", "Taking you there now!")
+            $goto('/message/demo')
+        } else if (authTicket === "CREATE123") {
+            toast.send("info", "No existing message", "Please send a new one.")
+            $goto('/message/new')
+        } else {
+            ticketValidationFailed = true;
+            ticketValidationFailureText = 'This code does not exist.';
+        }
     };
 
 </script>
@@ -22,6 +31,7 @@
 
         <hr>
 
+        <InlineNotification kind="info" title="Demo mode" subtitle="Use the code DEMO1234 to see an existing message or CREATE123 to send a new one." hideCloseButton/>
         <Form on:submit={validateTicket}>
             <FormGroup>
                 <PasswordInput bind:value={authTicket} placeholder="Enter 8-digit code..." invalid={ticketValidationFailed}
@@ -31,7 +41,5 @@
             <Button type="submit">Submit</Button>
         </Form>
 
-        <a href={$url('/message/new')}>Send new message ui</a>
-        <a href={$url('/message/1234')}>View existing message ui</a>
     </Tile>
 </div>
