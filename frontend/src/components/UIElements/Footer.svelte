@@ -9,7 +9,7 @@
             <Column>
                 <p> &copy; 2021 AHS-Hotline - Built with
                     <FavoriteFilled16/>
-                    by <a href="https://unixfy.net" target="_blank">Unixfy</a> - Powered by Svelte & Netlify
+                    by <a href="https://unixfy.net" rel="noreferrer" target="_blank">Unixfy</a> - Powered by Svelte & Netlify
                 </p>
             </Column>
         </Row>
@@ -21,6 +21,10 @@
         padding-top: 20px;
         padding-bottom: 20px;
         background-color: #262626;
+        color: white;
+    }
+
+    footer a {
         color: white;
     }
 </style>
