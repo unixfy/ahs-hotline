@@ -16,14 +16,14 @@
             key: 'status',
             value: 'Status',
         },
-        {
-            key: 'category',
-            value: 'Category'
-        },
-        {
-            key: 'priority',
-            value: 'Priority'
-        },
+        // {
+        //     key: 'category',
+        //     value: 'Category'
+        // },
+        // {
+        //     key: 'priority',
+        //     value: 'Priority'
+        // },
         {
             key: 'assignee',
             value: 'Assigned to'
@@ -54,11 +54,11 @@
         rows={messagesData}
         headers={headers}
         zebra
-        stickyHeader
-        >
+        expandable
+>
     <Toolbar>
         <ToolbarContent>
-            <ToolbarSearch />
+            <ToolbarSearch/>
         </ToolbarContent>
     </Toolbar>
 
@@ -69,4 +69,23 @@
             {cell.value}
         {/if}
     </span>
+
+    <span slot="expanded-row" let:row>
+        <div class="expanded-row">
+            <strong>Category</strong>: {row.category}
+            <br>
+            <strong>Priority</strong>: {row.priority}
+
+            <hr/>
+
+        <p>Message goes here</p>
+        </div>
+    </span>
 </DataTable>
+
+<style>
+    .expanded-row {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+</style>
