@@ -15,7 +15,7 @@
     import Sun20 from "carbon-icons-svelte/lib/Sun20";
     import Logout20 from "carbon-icons-svelte/lib/Logout20";
     import SettingsAdjust20 from "carbon-icons-svelte/lib/SettingsAdjust20";
-    import {auth} from "../../stores";
+    import {auth, toast} from "../../stores";
 
     export let items = $layout.children
 
@@ -29,6 +29,11 @@
     export let sideNavOpen;
     // Resolves some annoying warnings when building svelte app
     let toTitlecase = window.toTitlecase;
+
+    // Dark mode toggler
+    let toggleDarkMode = function () {
+        toast.send("info", "Dark mode", "Dark mode is not implemented yet 🙁")
+    }
 </script>
 
 <HeaderNav>
@@ -75,7 +80,7 @@
         <HeaderActionLink aria-label="Admin Area" icon={SettingsAdjust20} href="{$url('/admin/message/my')}"/>
         <HeaderActionLink aria-label="Logout" icon={Logout20} href="{$url('/auth/logout')}"/>
     {/if}
-    <HeaderGlobalAction aria-label="Dark Mode Toggle" icon={Sun20}/>
+    <HeaderGlobalAction aria-label="Dark Mode Toggle" icon={Sun20} on:click={toggleDarkMode}/>
     <!--    todo: implement localstorage with dark mode-->
 </HeaderUtilities>
 
