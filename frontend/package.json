@@ -19,7 +19,7 @@
     "test": "npm run test:dev && npm run test:build",
     "test:dev": "node test/lib/wrapper dev ava test/{common,dev}/**/*.test.js",
     "test:build": "node test/lib/wrapper build ava test/{common,build}/**/*.test.js",
-    "dev:vite": "vite",
+    "dev:vite": "vite --host 0.0.0.0",
     "build:vite": "vite build",
     "serve:vite": "vite preview"
   },
